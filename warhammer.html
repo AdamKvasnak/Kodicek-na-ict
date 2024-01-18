@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        <label for="search_term">Hledat:</label>
+        <input type="text" name="search_term" id="search_term" value="{{ search_term }}">
+        <input type="submit" value="Search">
+    </form>
+    
+    {% if results %}
+        <h2>Search Results</h2>
+        <ul>
+            {% for result in results %}
+                <li>{{ result }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+   
+    <ul>
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+          {% for bydliste in bydliste%}
+          <li>
+            <ul>
+                <li>jmeno: {{ bydliste[1] }}</li>
+                <li>planeta: {{ bydliste[2] }}</li>
+            </ul>
+          </li>
+        {% endfor %}
+
+    </ul>
+
+</body>
+</html>
